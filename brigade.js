@@ -1,5 +1,13 @@
 const { events } = require('brigadier')
 
-events.on("exec", (brigadeEvent, project) => {
-  console.log("Hello running brigade v0.11.0")
+events.on("Microsoft.Storage.BlobDeleted", (e, p) => {
+  console.log(e)
+})
+
+events.on("Microsoft.Storage.BlobCreated", (e, p) => {
+  console.log(e)
+})
+
+events.on("Microsoft.EventGrid.SubscriptionValidationEvent", (e, p) => {
+  console.log(e)
 })
