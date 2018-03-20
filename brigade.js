@@ -1,9 +1,19 @@
 const { events } = require('brigadier')
 
 events.on("Microsoft.Resources.ResourceWriteSuccess", (e, p) => {
-  console.log("RG write operation")
+  console.log("Resrouce Group write operation")
   var eventPayload = JSON.parse(e.payload)
-  console.log("Event type: " + eventPayload.eventType)
+  
+  // write values
+  console.log("eventType: " + eventPayload.eventType)
+  console.log("topic: " + eventPayload.topic)
+  console.log("subject: " + eventPayload.subject)
+  console.log("operationName: " + eventPayload.operationName)
+  console.log("resourceProvider: " + eventPayload.resourceProvider)
+  console.log("status: " + eventPayload.status)
+  console.log("subscriptionId: " + eventPayload.subscriptionId)
+  console.log("tenantId: " + eventPayload.tenantId)
+  console.log("resourceURI: " + eventPayload.resourceURI)
 })
 
 events.on("Microsoft.Resources.ResourceDeleteSuccess", (e, p) => {
